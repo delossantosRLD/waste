@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<body>
+	<div class="wrapper">
+		<div class="title">
+			<h3>Feedback Form</h3>
+		</div>
+		<div class="description">
+			<p>
+				We want to know your invaluable insights, to help us improve. Thank you.  
+			</p><br>
+		</div>
+		<form method="POST" action="">
+			{% csrf_token %}
+			<label style="font-size: 20px; color: blue;">Please Rate us:</label><br>
+				<input type="radio" id="" name="FBR_Rating_M">
+				<label value="Very Satisfied">5</label>
+				<input type="radio" id="" name="FBR_Rating_M">
+				<label value="Satisfied">4</label>  
+				<input type="radio" id="" name="FBR_Rating_M">
+				<label value="Neutral">3</label> 
+				<input type="radio" id="" name="FBR_Rating_M">
+				<label value="Disssatisfied">2</label>
+				<input type="radio" id="" name="FBR_Rating_M">
+				<label value="Very Disssatisfied">1</label><br><br>
+			<div class="radio">
+				{% for fbcks in createdfeedback %}
+				<input type="radio" value={{fbcks.RATING_CHOICES_M}} name="FBR_Rating_M">{{fbcks.FBR_Rating_M}}
+				{% endfor %}
+				<div class="field">
+			</div>
+			</div>
+			<p></p>
+			<div class="field">
+				<input type="text" id="" name="FBR_Desc_M" required>
+				<label>Comments</label>
+			</div>
+			<p></p>
+			<div class="field">
+				<input type="text" id="" name="FBR_Comments_M" required>
+				<label>Suggestions</label>
+			</div>
+			<p></p>
+			<div class="field">
+				<input type="submit" name="btnRDone" id="btnRDone" value="Submit">
+			</div>
+			<p></p>
+		</form>
+		<h4 style="text-align: center; "> Previous Feedbacks</h4>
+		<table id="Feedback Report" id="Feedback Report" width="50%" style="border:1px solid black" style="text-align: center;"/>
+		<tr style="text-align: center;">
+    		<th>Comments</th>
+    		<th>Suggestions</th>
+    		<th></th>
+    	</tr>
+  		{% for fdb in fbcks %}
+  		<tr style="text-align: center;">
+			<td>{{ forloop.counter}}: {{ fdb.FBR_Comments_M }}</td>
+			<td>{{ fdb.FBR_Desc_M }}</td>
+			<td><a href="{% url 'deletefeedback' fdb.id %}">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</table>
+	</div>
+</body>
+{% endblock %}

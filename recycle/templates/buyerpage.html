@@ -1,0 +1,78 @@
+{% extends 'base2.html' %}
+{% block content %}
+
+<h2>Buyer Information:</h2>
+{% if buyerInformation %}
+	<form method="POST" action="{% url 'updatebuyer' buyerInformation.id %}">
+		{% csrf_token %}
+		<div class="txt_field">
+		<label>Name:</label>
+		<br><input type="text" size="30" id="" value = "{{buyerInformation.BName_M}}" name="BName_M" placeholder="Enter your Name here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Address:</label>
+		<br><input type="text" size="30" id="" value = "{{buyerInformation.BAddress_M}}" name="BAddress_M" placeholder="Enter your Address here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Contact No.:</label>
+		<br><input type="text" size="11" id="" value = "{{buyerInformation.BContact_M}}" name="BContact_M" minlength="11" maxlength="11" placeholder="09xxxxxxxxx" required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Email Address:</label>
+		<br><input type="email" size="15" id="" value = "{{buyerInformation.BEmail_M}}" name="BEmail_M" placeholder="Enter your email add here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Company:</label>
+		<br><input type="text" size="15" id="" value = "{{buyerInformation.BCompanyName_M}}" name="BCompanyName_M" placeholder="Enter your Company Name here.">
+		</div>
+		<p></p>
+
+		<input id="btn"type="submit" name="btn" value="Submit"/>
+		<p></p>
+	</form>
+{% else %}
+	<form method="POST" action="">
+		{% csrf_token %}
+		<div class="txt_field">
+		<label>Name:</label>
+		<br><input type="text" size="30" id="" name="BName_M" placeholder="Enter your Name here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Address:</label>
+		<br><input type="text" size="30" id="" name="BAddress_M" placeholder="Enter your Address here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Contact No.:</label>
+		<br><input type="text" size="11" id="" name="BContact_M" minlength="11" maxlength="11" placeholder="09xxxxxxxxx" required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Email Address:</label>
+		<br><input type="email" size="15" id="" name="BEmail_M" placeholder="Enter your email add here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Company:</label>
+		<br><input type="text" size="15" id="" name="BCompanyName_M" placeholder="Enter your Company Name here.">
+		</div>
+		<p></p>
+
+		<input id="btn"type="submit" name="btn" value="Submit"/>
+		<p></p>
+	</form>
+{% endif %}
+{% endblock %}

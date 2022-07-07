@@ -1,0 +1,117 @@
+{% extends 'base3.html' %}
+{% block content %}
+<style>
+
+</style>	
+	<!-- <meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+<h3>Encode your Recycable Items Here:</h3>
+{% if recitem %}
+	<form method="POST" action="{% url 'updaterec' recitem.id %}">
+		{% csrf_token %}
+		<div class=container text>
+		<div class="txt_field">
+		<label>Item:</label>
+		<br><input type="text" id="" size="30" value ="{{recitem.ItemName_M}}" name="ItemName_M" placeholder="Enter your Item here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Description:</label>
+		<br><input type="text" id="" size="30" value ="{{recitem.ItemDesc_M}}" name="ItemDesc_M" placeholder="Enter your Item description here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Quantity:</label>
+		<br><input type="text" id="" size="15" value ="{{recitem.Quantity_M}}" name="Quantity_M" placeholder="Enter your quantity here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Unit:</label>
+		<br><input type="text" id="" size="15" value ="{{recitem.Unit_M}}" name="Unit_M" placeholder="Enter your unit here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Price:</label>
+		<br><input type="text" id="" size="15" value ="{{recitem.Price_M}}" name="Price_M" placeholder="Enter your price here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<input id="btn"type="submit" name="btn" value="Submit"/>
+		</div>
+		<p></p>
+	</form>
+{% else %}
+	<form method="POST" action="">
+		{% csrf_token %}
+		<div class=container text>
+		<div class="txt_field">
+		<label>Item:</label>
+		<br><input type="text" id="" size="30" name="ItemName_M" placeholder="Enter your Item here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Description:</label>
+		<br><input type="text" id="" size="30" name="ItemDesc_M" placeholder="Enter your Item description here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Quantity:</label>
+		<br><input type="text" id="" size="15" name="Quantity_M" placeholder="Enter your quantity here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Unit:</label>
+		<br><input type="text" id="" size="15" name="Unit_M" placeholder="Enter your unit here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Price:</label>
+		<br><input type="text" id="" size="15" name="Price_M" placeholder="Enter your price here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<input id="btn"type="submit" name="btn" value="Submit"/>
+		</div>
+		<p></p>
+	</form>
+{% endif %}
+			
+		
+	<table id="Registry Table"width="50%" style="border:1px solid black" style="text-align: center;"/>
+	
+		<!-- <tr style="text-align: center;">
+    		<th>Item</th>
+    		<th>Description</th>
+    		<th>Qty</th>
+    		<th>Unit</th>
+    		<th>Price</th>
+    		<th></th>
+    		<th></th>
+  		</tr>
+  		{% for deliver in itemss %}
+  		<tr style="text-align: center;">
+			<td>{{ forloop.counter}}: {{ deliver.ItemName_M }}</td>
+			<td>{{ deliver.ItemDesc_M }}</td>
+			<td>{{ deliver.Quantity_M }}</td>
+			<td>{{ deliver.Unit_M }}</td>
+			<td>{{ deliver.Price_M}}</td>
+			<td><a href="#">Update</a></td>
+      <td><a href="#">Delete</a></td>
+
+
+
+		</tr>
+		{% endfor %}
+	</table> -->
+</html>
+{% endblock %}
