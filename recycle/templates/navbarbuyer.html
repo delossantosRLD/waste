@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+{% block content %}
+<head>
+<title>Waste Management</title>
+</head>
+<body>
+	
+	<div class="banner">
+	<div class="navbar">
+	<ul>
+	<li><a href="{% url 'MainPage' %}">Home</a></li>
+    <li><a href="{% url 'buyerpage' %}">Buyer</a></li>
+    <li><a href="{% url 'displaybuyer' %}">List of Buyer</a></li>
+    <li><a href="{% url 'disrec' %}">Items for Sale</a></li>
+    </ul>  
+	</div>
+</body>
+</html>
+{% endblock %}

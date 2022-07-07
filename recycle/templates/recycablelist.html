@@ -1,0 +1,27 @@
+{% extends 'base3.html' %}
+{% block content %}
+<div class="D_table_head">
+  <h1 style="text-align: center; "> List of Recycables</h1>
+<table id="Registry Table" name="Registry Table">
+      <br>
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Qty</th>
+        <th>Unit</th>
+        <th>Price</th>
+      </tr>
+     {% for deliver in disrec %}
+      <tr style="text-align: center;">
+      <td>{{ forloop.counter}}. {{ deliver.ItemName_M }}</td>
+      <td>{{ deliver.ItemDesc_M }}</td>
+      <td>{{ deliver.Quantity_M }}</td>
+      <td>{{ deliver.Unit_M }}</td>
+      <td>Php {{ deliver.Price_M}}.00</td>
+      <td><a href="{% url 'editrec' deliver.id %}">Edit</a></td>
+      <td><a href="{% url 'deleterec' deliver.id %}">Delete</a></td>
+      {% endfor %}
+    </table>
+  </body>
+</html>
+{% endblock %}

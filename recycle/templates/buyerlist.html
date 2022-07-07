@@ -1,0 +1,30 @@
+{% extends 'base2.html' %}
+{% block content %}
+
+<div class="D_table_head">
+  <h1 style="text-align: center; "> List of Buyer</h1>
+<table id="Buyer information" name="Buyer information">
+      <br>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact No.</th>
+        <th>Email Address</th>
+        <th>Company</th>
+        <th></th>
+        <th></th>
+      </tr>
+     {% for binfo in disbuy %}
+      <tr style="text-align: center;">
+      <td>{{ forloop.counter}}: {{ binfo.BName_M }}</td>
+      <td>{{ binfo.BAddress_M }}</td>
+      <td>{{ binfo.BContact_M }}</td>
+      <td>{{ binfo.BEmail_M }}</td>
+      <td>{{ binfo.BCompanyName_M }}</td>
+      <td><a href="{% url 'editbuyer' binfo.id %}">Update</a></td>
+      <td><a href="{% url 'deletebuyer' binfo.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</html>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base3.html' %}
+{% block content %}
+
+<div class="D_table_head">
+  <h1 style="text-align: center; "> List of Seller</h1>
+<table id="Client Information" name="Client Information">
+      <br>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Contact No.</th>
+        <th>Email Address</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+     {% for cinfo in dissell %}
+      <tr style="text-align: center;">
+      <td>{{ forloop.counter}}: {{ cinfo.CName_M }}</td>
+      <td>{{ cinfo.CAddress_M }}</td>
+      <td>{{ cinfo.CContact_M }}</td>
+      <td>{{ cinfo.CEmail_M }}</td>
+      <td><a href="{% url 'editseller' cinfo.id %}">Update</a></td>
+      <td><a href="{% url 'deleteseller' cinfo.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </table>
+</html>
+{% endblock %}

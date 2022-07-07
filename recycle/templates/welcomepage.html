@@ -1,0 +1,27 @@
+{%extends 'base.html'%}
+{% block content %}
+<title>Waste Management</title>
+
+<body>
+	<h2>Welcome to My Homepage</h2>
+	<h3>Kindly select if you are:</h3>
+	<!-- <ul>
+	<li><a href="{% url 'sellerinfo' %}">Seller</a></li>
+	<li><a href="{% url 'buyerpage' %}">Buyer</a></li> </ul>-->
+	<div>
+        <button id="Butones"><span></span>Seller</button>
+        <script type="text/javascript">
+          document.getElementById("Butones").onclick = function () {
+            location.href = "{% url 'sellerinfo' %}";
+          };
+        </script>
+        <button id="Butoness"><span></span>Buyer</button>
+        <script type="text/javascript">
+          document.getElementById("Butoness").onclick = function () {
+            location.href = "{% url 'buyerpage' %}";
+          };
+		</script>
+    
+</body>
+</html>
+{% endblock %}

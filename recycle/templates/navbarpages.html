@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Waste Management</title>
+
+</head>
+<body>
+	
+	<div class="banner">
+		<div class="navbar">
+		<ul>
+		<li><a href="{% url 'MainPage' %}">Home</a></li>
+    	<li><a href="{% url 'sellerinfo' %}">Seller</a></li>
+    	<li><a href="{% url 'displayseller' %}">List of Seller</a></li>
+    	<li><a href="{% url 'sellerpage' %}">Items</a></li>	
+    	<li><a href="{% url 'displayrec' %}">Recycable Items</a></li>
+    	</ul>  
+		</div>
+	</div>
+</body>
+</html>

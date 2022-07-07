@@ -1,0 +1,98 @@
+{% extends 'base3.html' %}
+{% block content %}
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<div class="center">
+<h2>Seller Information:</h2>
+{% if clientInformation %}
+	<form method="POST" action="{% url 'updateseller' clientInformation.id %}">
+		{% csrf_token %}
+		<div class=container text>
+		<div class="txt_field">
+		<label>Name:</label>
+		<br><input type="text" size="30" id="" value = "{{clientInformation.CName_M}}" name="CName_M" placeholder="Enter your Name here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Address:</label>
+		<br><input type="text" size="30" id="" value = "{{clientInformation.CAddress_M}}" name="CAddress_M" placeholder="Enter your Address here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Contact No.:</label>
+		<br><input type="tel" size="11" id="" value = "{{clientInformation.CContact_M}}"name="CContact_M" minlength="11" maxlength="11" placeholder="09xxxxxxxxx." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Email Address:</label>
+		<br><input type="email" size="15" id="" value = "{{clientInformation.CEmail_M}}"name="CEmail_M" placeholder="Enter your email add here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<input id="btn"type="submit" name="btn" value="Submit"/>
+		</div>
+		<p></p>
+	</form>
+{% else %}	
+	<form method="POST" action="">
+		{% csrf_token %}
+		<div class=container text>
+		<div class="txt_field">
+		<label>Name:</label>
+		<br><input type="text" size="30" id="" name="CName_M" placeholder="Enter your Name here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Address:</label>
+		<br><input type="text" size="30" id="" name="CAddress_M" placeholder="Enter your Address here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Contact No.:</label>
+		<br><input type="tel" size="11" id="" name="CContact_M" minlength="11" maxlength="11" placeholder="09xxxxxxxxx." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<label>Email Address:</label>
+		<br><input type="email" size="15" id="" name="CEmail_M" placeholder="Enter your email add here." required>
+		</div>
+		<p></p>
+
+		<div class="txt_field">
+		<input id="btn"type="submit" name="btn" value="Submit"/>
+		</div>
+		<p></p>
+	</form>
+{% endif %}
+</div>
+	<!-- <table id="Client Information"width="50%" style="border:1px solid black" style="text-align: center;"/>
+	
+		<tr style="text-align: center;">
+    		<th>Name</th>
+    		<th>Address</th>
+    		<th>Contact No.</th>
+    		<th>Email Address</th>
+    		<th>Update</th>
+    		<th>Delete</th>
+  		</tr>
+  		{% for cinfo in slists %}
+  		<tr style="text-align: center;">
+			<td>{{ forloop.counter}}: {{ cinfo.CName_M }}</td>
+			<td>{{ cinfo.CAddress_M }}</td>
+			<td>{{ cinfo.CContact_M }}</td>
+			<td>{{ cinfo.CEmail_M }}</td>
+			<td><a href="#">Update</a></td>
+      <td><a href="#">Delete</a></td>
+		</tr>
+		{% endfor %}
+	</table> -->
+</html>
+{% endblock %}
